@@ -125,3 +125,10 @@
   enabled = true
 [include]
   path = .gitconfig.user
+[user]
+	name = Joachim Tesznar
+	email = jtesznar@gmail.com
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
