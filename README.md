@@ -8,7 +8,12 @@
     # Yet Another Dotfile Repo v1.1
     # Now with Prezto and Vundle!
 
+<<<<<<< HEAD
 [![Join the chat at https://gitter.im/skwp/dotfiles](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/skwp/dotfiles?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+=======
+    git clone https://github.com/skwp/dotfiles ~/.yadr
+    cd ~/.yadr && rake install
+>>>>>>> origin/auto-install
 
 #### sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
 
@@ -73,6 +78,7 @@ Same as iTerm. The Lion style spaces navigation slows everything down for no rea
       let g:yadr_using_unsolarized_terminal = 1
       # in ~/.vimrc.before
 
+<<<<<<< HEAD
 * If you want to use an alternate colorcheme like Gruvbox, then in your `~/.vimrc.after` do:
 
       let g:yadr_disable_solarized_enhancements = 1
@@ -80,20 +86,45 @@ Same as iTerm. The Lion style spaces navigation slows everything down for no rea
 
 ### Upgrading
 
+=======
+Installation is automated via `rake` and the `yadr` command. To get
+started please run:
+
+```bash
+git clone https://github.com/skwp/dotfiles ~/.yadr
+cd ~/.yadr && rake install
+```
+
+Note: YADR will not destroy any of your files unless you tell it to.
+
+
+## Upgrading
+
+>>>>>>> origin/auto-install
 Upgrading is easy.
 
 ```bash
 cd ~/.yadr
+<<<<<<< HEAD
 git pull --rebase
 rake update
 ```
 
 ## What's included, and how to customize?
+=======
+git pull origin master
+rake install
+```
+
+
+### ZSH
+>>>>>>> origin/auto-install
 
 Read on to learn what YADR provides!
 
 ### [Homebrew](http://mxcl.github.com/homebrew/)
 
+<<<<<<< HEAD
 Homebrew is _the missing package manager for OSX_. Installed automatically.
 
 We automatically install a few useful packages including ctags, git, macvim, hub, and the silver searcher ('ag')
@@ -115,17 +146,73 @@ We've also provided lots of enhancements:
 ### Aliases
 
 Lots of things we do every day are done with two or three character
+=======
+Lots of things I do every day are done with two or three character
+>>>>>>> origin/auto-install
 mnemonic aliases. Please feel free to edit them:
 
     ae # alias edit
     ar # alias reload
 
+<<<<<<< HEAD
 
 ### Git Customizations:
 
 YADR will take over your `~/.gitconfig`, so if you want to store your usernames, please put them into `~/.gitconfig.user`
 
 It is recommended to use this file to set your user info. Alternately, you can set the appropriate environment variables in your `~/.secrets`.
+=======
+**ZSH Customizations**
+
+ * Vim mode
+ * Bash style ctrl-R for reverse history finder
+ * Fuzzy matching - if you mistype a directory name, tab completion will fix it
+
+
+### Pry
+
+Pry (http://pry.github.com/) offers a much better out of the box IRB experience
+with colors, tab completion, and lots of other tricks. You should:
+
+#### Install the gem
+
+```bash
+gem install pry
+gem install awesome_print
+```
+
+#### Use pry
+
+  * as irb: `pry`
+  * as rails console: `script/console --irb=pry`
+
+#### Pry Customizations:
+
+ * `clear` command to clear screen
+ * `sql` command to execute something (within a rails console)
+ * all objects displayed in readable format (colorized, sorted hash keys) - via awesome_print
+ * a few color modifications to make it more useable
+ * type `help` to see all the commands
+
+### Git
+
+#### User Info
+
+Since the gitconfig doesn't contain the user info, I recommend using env variables. Put the following in 
+your `~/.secrets` file which is automatically referenced by the provided zshrc:
+
+    # Set your git user info
+    export GIT_AUTHOR_NAME='Your Name'
+    export GIT_AUTHOR_EMAIL='you@domain.com'
+    export GIT_COMMITTER_NAME='Your Name'
+    export GIT_COMMITTER_EMAIL='you@domain.com'
+
+    # Optionally, set your GitHub credentials
+    export GITHUB_USER='your_user_name'
+    export GITHUB_TOKEN='your_github_token'
+
+#### Git Customizations:
+>>>>>>> origin/auto-install
 
   * `git l` or `gl`- a much more usable git log
   * `git b` or `gb`- a list of branches with summary of last commit
@@ -142,6 +229,7 @@ It is recommended to use this file to set your user info. Alternately, you can s
 
 ### RubyGems
 
+<<<<<<< HEAD
 A .gemrc is included. Never again type `gem install whatever --no-ri --no-rdoc`. `--no-ri --no-rdoc` is done by default.
 
 ### Tmux configuration
@@ -153,6 +241,9 @@ You can customize the configuration in `~/.tmux.conf.user`.
 
 The provided inputrc and editrc will turn your various command line tools like mysql and irb into vim prompts. There's
 also an included Ctrl-R reverse history search feature in editrc, very useful in irb, postgres command line, and etc.
+=======
+### Vim
+>>>>>>> origin/auto-install
 
 ### Github Issues: [ghi gem](https://github.com/stephencelis/ghi)
 
