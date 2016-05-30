@@ -1,4 +1,5 @@
 require 'rake'
+<<<<<<< HEAD
 require 'fileutils'
 require File.join(File.dirname(__FILE__), 'bin', 'yadr', 'vundle')
 
@@ -109,12 +110,61 @@ task :install_vundle do
   end
 
   Vundle::update_vundle
+=======
+
+desc "Hook our dotfiles into system-standard positions."
+task :install => :submodules do
+  # this has all the linkables from this directory.
+  linkables = []
+  linkables += Dir.glob('git/*') if want_to_install?('git')
+  linkables += Dir.glob('irb/*') if want_to_install?('irb/pry')
+  linkables += Dir.glob('{vim,vimrc}') if want_to_install?('vim')
+  linkables += Dir.glob('zsh/zshrc') if want_to_install?('zsh')
+
+  skip_all = false
+  overwrite_all = false
+  backup_all = false
+
+  linkables.each do |linkable|
+    file = linkable.split('/').last
+    source = "#{ENV["PWD"]}/#{linkable}"
+    target = "#{ENV["HOME"]}/.#{file}"
+
+    puts "--------"
+    puts "file:   #{file}"
+    puts "source: #{source}"
+    puts "target: #{target}"
+
+    if File.exists?(target) || File.symlink?(target)
+      unless skip_all || overwrite_all || backup_all
+        puts "File already exists: #{target}, what do you want to do? [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all"
+        case STDIN.gets.chomp
+        when 'o' then overwrite = true
+        when 'b' then backup = true
+        when 'O' then overwrite_all = true
+        when 'B' then backup_all = true
+        when 'S' then skip_all = true
+        end
+      end
+      FileUtils.rm_rf(target) if overwrite || overwrite_all
+      `mv "$HOME/.#{file}" "$HOME/.#{file}.backup"` if backup || backup_all
+    end
+    `ln -fs "#{source}" "#{target}"`
+  end
+  success_msg("installed")
+end
+
+desc "Init and update submodules."
+task :submodules do
+  sh('git submodule update --init')
+>>>>>>> origin/auto-install
 end
 
 task :default => 'install'
 
 
 private
+<<<<<<< HEAD
 def run(cmd)
   puts "[Running] #{cmd}"
   `#{cmd}` unless ENV['DEBUG']
@@ -355,6 +405,12 @@ def apply_theme_to_iterm_profile_idx(index, color_scheme_path)
 
   run %{ /usr/libexec/PlistBuddy -c "Merge '#{color_scheme_path}' :'New Bookmarks':#{index}" ~/Library/Preferences/com.googlecode.iterm2.plist }
   run %{ defaults read com.googlecode.iterm2 }
+=======
+
+def want_to_install? (section)
+  puts "Would you like to install configuration files for: #{section}? [y]es, [n]o"
+  STDIN.gets.chomp == 'y'
+>>>>>>> origin/auto-install
 end
 
 def success_msg(action)
