@@ -211,5 +211,6 @@ alias dbmu='spring rake db:migrate:up'
 # Homebrew
 alias brewu='brew update  && brew upgrade --all && brew cleanup && brew prune && brew doctor'
 
-alias psql='/Applications/Postgres.app/Contents/Versions/9.5/bin/psql -p5432'
+# Postgres.app
+#alias psql='/Applications/Postgres.app/Contents/Versions/9.5/bin/psql -p5432'
 
