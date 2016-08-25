@@ -15,7 +15,7 @@
     cd ~/.yadr && rake install
 >>>>>>> origin/auto-install
 
-#### sh -c "`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh`"
+#### sh -c "\`curl -fsSL https://raw.githubusercontent.com/skwp/dotfiles/master/install.sh \`"
 
 **Always be sure to run `rake update` after pulling to ensure plugins are updated**
 
@@ -412,5 +412,3 @@ Pry offers a much better out of the box IRB experience with colors, tab completi
 as an actual debugger by installing [pry-nav](https://github.com/nixme/pry-nav).
 
 [Learn more about YADR's pry customizations and how to install](doc/pry.md)
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/skwp/dotfiles/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
