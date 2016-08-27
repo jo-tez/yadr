@@ -18,11 +18,25 @@ GitStyleBinary.command do
         - Vim script repository (plugin_name): FuzzyFinder
   EOS
   run do |command|
+<<<<<<< HEAD
     repo=command.opts[:url]
     repo=command.opts[:url]
     puts "Adding \"#{repo}\" to the plugin list"
     bundle_path=repo.gsub(/http.?:\/\/github\.com\//, "")
     Vundle::add_plugin_to_vundle repo
     Vundle::update_vundle
+=======
+    unless ARGV.size==1
+      puts "Example: #{$0} https://github.com/robgleeson/hammer.vim.git"
+    else
+      begin
+        repo=command[:url]
+        bundle_path=repo.gsub("https://github.com/","").gsub(".git","").gsub("/","-").gsub(".vim","")
+        system("cd #{$yadr} && git submodule add #{repo} vim/bundle/#{bundle_path}")
+      rescue
+        puts "Sorry, couldn't parse your path: #{$!}"
+      end
+    end
+>>>>>>> origin/auto-install
   end
 end

@@ -179,6 +179,7 @@ alias zrc='zeus rails c'
 alias zrs='zeus rails s'
 alias zrdbm='zeus rake db:migrate'
 alias zrdbtp='zeus rake db:test:prepare'
+alias zzz='rm .zeus.sock; pkill zeus; zeus start'
 
 # Rspec
 alias rs='rspec spec'
@@ -210,3 +211,7 @@ alias dbmu='spring rake db:migrate:up'
 
 # Homebrew
 alias brewu='brew update  && brew upgrade --all && brew cleanup && brew prune && brew doctor'
+
+# Postgres.app
+#alias psql='/Applications/Postgres.app/Contents/Versions/9.5/bin/psql -p5432'
+
