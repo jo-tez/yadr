@@ -26,12 +26,12 @@ function prompt_skwp_precmd {
   if (( $+functions[ruby-info] )); then
     ruby-info
   fi
-  
+
   # Get Virtual env info
   if (( $+functions[python-info] )); then
     python-info
   fi
-  
+
 }
 
 function prompt_skwp_setup {
@@ -74,9 +74,10 @@ function prompt_skwp_setup {
   zstyle ':prezto:module:ruby:info:version' format '[%v]'
 
   # %v - virtualenv name.
-  zstyle ':prezto:module:python:info:virtualenv' format '%F{220}py:%v%f'
+  #zstyle ':prezto:module:python:info:virtualenv' format 'virtualenv:%v'
+  zstyle ':prezto:module:python:info:virtualenv' format '🐍  %v'
 
-  PROMPT="%F{green}${python_info[virtualenv]} ${__PROMPT_SKWP_COLORS[3]}%n%f@${__PROMPT_SKWP_COLORS[2]}%m%f ${__PROMPT_SKWP_COLORS[5]}%~%f "'$git_info[prompt]'"$ "
+  PROMPT="${python_info[virtualenv]} ${__PROMPT_SKWP_COLORS[3]}%n%f@${__PROMPT_SKWP_COLORS[2]}%m%f ${__PROMPT_SKWP_COLORS[5]}%~%f "'$git_info[prompt]'"$ "
   RPROMPT='%F{blue}${ruby_info[version]}'
 }
 
