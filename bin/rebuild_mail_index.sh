@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mail_data_dir="/Users/$USER/Library/Mail/V2/MailData"
+mail_data_dir="/Users/$USER/Library/Mail/V3/MailData"
 killall -HUP Mail
 BEFORE=`ls -lah $mail_data_dir | grep -E 'Envelope Index$' | awk '{ print $5 }'`
 /usr/bin/sqlite3 $mail_data_dir/Envelope\ Index 'PRAGMA integrity_check';
