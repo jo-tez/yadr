@@ -127,7 +127,7 @@
   path = .gitconfig.user
 [filter "lfs"]
 	required = true
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 [user]
 	name = Johan Tez
