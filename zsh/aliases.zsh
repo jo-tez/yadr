@@ -210,8 +210,4 @@ alias dbmd='spring rake db:migrate:down'
 alias dbmu='spring rake db:migrate:up'
 
 # Homebrew
-alias brewu='brew update  && brew upgrade --all && brew cleanup && brew prune && brew doctor'
-
-# Postgres.app
-#alias psql='/Applications/Postgres.app/Contents/Versions/9.5/bin/psql -p5432'
-
+alias brewu='brew update  && brew upgrade && brew cleanup && brew prune && brew doctor'
