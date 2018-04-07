@@ -211,3 +211,6 @@ alias dbmu='spring rake db:migrate:up'
 
 # Homebrew
 alias brewu='brew update  && brew upgrade && brew cleanup && brew prune && brew doctor'
+
+# Networking
+alias restart_en0='sudo ifconfig en0 down && sudo ifconfig en0 up'
