@@ -216,5 +216,7 @@ alias brewu='brew update && brew upgrade && brew cleanup && brew doctor'
 alias restart_en0='sudo ifconfig en0 down && sudo ifconfig en0 up'
 
 # Python
-alias pipu='pip install --upgrade'
-alias pip-upgrade='pip list -o | cut -d " " -f 1 | tail -n +3 | xargs pip install -U'
+alias python='python3'
+alias pip='pip3'
+alias pipu='pip3 install --upgrade'
+alias pip-upgrade='pip3 list -o | cut -d " " -f 1 | tail -n +3 | xargs pip3 install -U'
