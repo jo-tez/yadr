@@ -4,3 +4,4 @@ for config_file ($HOME/.yadr/zsh/*.zsh) source $config_file
 
 # Created by `pipx` on 2024-05-19 13:43:39
 export PATH="$PATH:/Users/joachim/.local/bin"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
